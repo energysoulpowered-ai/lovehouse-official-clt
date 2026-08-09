@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getPosts, formatDate, type BlogPost } from "../../lib/blog";
-import { createSatteriMarkdownProcessor } from "@astrojs/markdown-satteri";
+import { createMarkdownProcessor} from "@astrojs/markdown-remark";
 import { ArrowLeft } from "@lucide/astro";
 
 export async function getStaticPaths() {
