@@ -1,0 +1,215 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Disc3, AudioWaveform, Headphones, ArrowUpRight } from "@lucide/astro";
+
+const archiveMixes = [
+  {
+    kind: "Saturdays · 11PM–1AM EST",
+    title: "TWIRLSPACE",
+    note: "Deep, soulful, afro tech house journeys live on Twitch.",
+    link: "https://twitch.tv/johncrockettdjsets",
+  },
+  {
+    kind: "Sundays · After Hours (1AM–4AM EST)",
+    title: "SLEAZY MORNING DISCO",
+    note: "Late-night disco and house vibes keeping the energy alive.",
+    link: "https://twitch.tv/johncrockettdjsets",
+  },
+  {
+    kind: "Tuesdays · 7PM–9PM EST",
+    title: "WAX ON WAX OFF",
+    note: "Continuous vinyl mix show of classic soulful b-side tunes.",
+    link: "https://twitch.tv/johncrockettdjsets",
+  },
+];
+
+const pillars = [
+  { icon: AudioWaveform, title: "Soulful", body: "Vocals with heart, chords that ache — house that feels like something." },
+  { icon: Disc3, title: "Deep", body: "Hypnotic, rolling, patient. Built for the long stretch of the night." },
+  { icon: Headphones, title: "Underground", body: "No formulas, no filler. Records you won't hear on the radio." },
+];
+
+const signatureMixes = [
+  {
+    title: "Basement Devotion",
+    note: "Warm, hypnotic deep house for the small hours — the sound of the floor when the room becomes one.",
+  },
+  {
+    title: "CLT After Dark",
+    note: "A Charlotte late-night ride: rolling grooves, soulful vocals, and just enough grit for the underground.",
+  },
+  {
+    title: "Love in Four on the Floor",
+    note: "Peak-time devotion — driving kicks, uplifting chords, and hands in the air. Pure LoveHouse energy.",
+  },
+];
+---
+
+<Layout
+  title="Music — LoveHouse Official CLT"
+  description="Mixes, sets, and the LoveHouse sound: soulful, deep, and underground house music from Charlotte."
+>
+  <!-- HEADER -->
+  <section class="border-b border-white/10 bg-gradient-to-b from-crimson/25 to-ink">
+    <div class="mx-auto max-w-7xl px-6 py-24 sm:px-10 md:py-28">
+      <p class="font-display text-sm font-bold uppercase tracking-[0.3em] text-magenta">
+        The Sound
+      </p>
+      <h1 class="mt-4 max-w-3xl font-display text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-7xl">
+        <span class="text-red">Deep</span> Soulful Afro Tech House Music
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-offwhite/85">
+        Everything we play comes back to one thing: house music that moves you.
+        Here's what that sounds like.
+      </p>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="mx-auto max-w-7xl px-6 py-20 sm:px-10">
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        pillars.map((p) => (
+          <div class="rounded-2xl border border-white/10 bg-ink-soft p-8">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-magenta/15 text-magenta">
+              <p.icon size={24} />
+            </div>
+            <h3 class="mt-6 font-display text-2xl font-bold uppercase tracking-wide">{p.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ash">{p.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- SIGNATURE MIXES -->
+  <section class="mx-auto max-w-7xl px-6 pb-4 sm:px-10">
+    <h2 class="font-display text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+      Signature <span class="text-magenta">Mixes</span>
+    </h2>
+    <p class="mt-4 max-w-xl text-lg text-ash">
+      Three sessions that capture the LoveHouse sound — from basement devotion to peak-time love.
+    </p>
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      {
+        signatureMixes.map((mix) => (
+          <div class="group rounded-2xl border border-white/10 bg-ink-soft p-7 transition-colors hover:border-magenta/50">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-magenta/15 text-magenta transition-colors group-hover:bg-magenta group-hover:text-offwhite">
+              <Disc3 size={24} />
+            </div>
+            <h3 class="mt-6 font-display text-xl font-bold uppercase tracking-tight">{mix.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ash">{mix.note}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- FEATURED ARTISTS -->
+  <section class="mx-auto max-w-7xl px-6 py-20 sm:px-10">
+    <h2 class="font-display text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+      Featured Artists · LoveHouse <span class="text-red">Aug 15</span>
+    </h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      <!-- Card 1 — Resident Curator: John Crockett -->
+      <div class="rounded-2xl border border-white/10 bg-ink-soft p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-magenta">Resident Curator</p>
+        <img
+          src="https://cdn.marblism.com/pa7gA9E2Sku.jpeg"
+          alt="John Crockett"
+          class="mt-4 h-60 w-full rounded-xl object-cover"
+        />
+        <h3 class="mt-4 font-display text-xl font-bold uppercase tracking-tight">John Crockett</h3>
+        <p class="mt-3 text-sm leading-relaxed text-ash">
+          With over four decades in house music, John Crockett brings the soul of New Jersey's
+          legendary club scene to Charlotte's underground. Resident Curator at LoveHouse, founder of
+          Twirlspace Recordings, and curator of deep, soulful, afro tech house journeys. Catch his
+          weekly shows on Twitch — TWIRLSPACE & SLEAZY MORNING DISCO (Saturdays 11pm-4am) and Wax on
+          Wax Off (Tuesdays).
+        </p>
+      </div>
+
+      <!-- Card 2 — Special Guest: Wil Milton -->
+      <div class="rounded-2xl border border-white/10 bg-ink-soft p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-magenta">Special Guest</p>
+        <img src="https://cdn.marblism.com/Wt61zS5rC-l.webp" alt="Wil Milton" class="mt-4 object-cover h-60 w-full rounded-xl" />
+        <h3 class="mt-4 font-display text-xl font-bold uppercase tracking-tight">Wil Milton</h3>
+        <p class="mt-3 text-sm leading-relaxed text-ash">
+          A celebrated New York–based DJ, producer, and songwriter with over 35 years in the
+          industry. Wil has become a respected figure in the global house music scene, known for his
+          soulful, deep, and uplifting sound that transcends boundaries. His artistry has taken him
+          across the world, earning a devoted following internationally. He has worked alongside
+          François Kevorkian, Lady Alma, Kenny Bobien, Louie Vega, BLAZE, Timmy Regisford, and many
+          more.
+        </p>
+      </div>
+
+      <!-- Card 3 — The Ember: DJ Q-INETIC -->
+      <div class="rounded-2xl border border-white/10 bg-ink-soft p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-magenta">The Ember</p>
+        <img src="https://cdn.marblism.com/I0JWw7LN7Vg.jpg" alt="DJ Q-INETIC" class="mt-4 object-cover h-60 w-full rounded-xl" />
+        <h3 class="mt-4 font-display text-xl font-bold uppercase tracking-tight">DJ Q-INETIC</h3>
+        <p class="mt-3 text-sm leading-relaxed text-ash">
+          Jersey born, Charlotte based — DJ Q-INETIC is the new spark on the scene, bringing
+          energetic deep and soulful sets to the underground house music movement in the Queen City.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MIXES -->
+  <section class="mx-auto max-w-7xl px-6 pb-24 sm:px-10">
+    <h2 class="font-display text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+      John Crockett <span class="text-red">Archive Mixes</span> (All Shows)
+    </h2>
+
+    <!-- SOUNDCLOUD PROFILE EMBED -->
+    <div class="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-ink-soft">
+      <iframe
+        title="Powered by Energy & Soul on SoundCloud"
+        width="100%"
+        height="450"
+        scrolling="no"
+        frameborder="no"
+        allow="autoplay"
+        loading="lazy"
+        class="block w-full"
+        src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fleomoon&color=%23e6142b&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+      ></iframe>
+    </div>
+
+    <div class="mt-10 divide-y divide-white/10 border-y border-white/10">
+      {
+        archiveMixes.map((m, i) => (
+          <a
+            href={m.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col gap-4 py-7 transition-colors hover:bg-white/[0.03] sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div class="flex items-start gap-5">
+              <span class="font-display text-3xl font-black text-red/70">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-widest text-magenta">{m.kind}</p>
+                <h3 class="mt-1 font-display text-2xl font-bold uppercase tracking-tight">{m.title}</h3>
+                <p class="mt-1 max-w-xl text-sm text-ash">{m.note}</p>
+              </div>
+            </div>
+            <span class="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-offwhite/70 transition-colors group-hover:border-red group-hover:text-offwhite">
+              Watch
+              <ArrowUpRight size={14} />
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="mt-14 text-center">
+      <a href="/contact" class="font-display text-sm font-bold uppercase tracking-widest text-red underline-offset-4 hover:underline">
+        Book a DJ
+      </a>
+    </p>
+  </section>
+</Layout>

@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Download, ArrowLeft, FileArchive } from "@lucide/astro";
+---
+
+<Layout
+  title="Download Site Code — LoveHouse Official CLT"
+  description="Download the full source code of the LoveHouse Official CLT website as a zip archive."
+>
+  <section class="border-b border-white/10 bg-gradient-to-b from-crimson/25 via-violet/15 to-ink">
+    <div class="mx-auto max-w-7xl px-6 py-24 sm:px-10 md:py-28">
+      <p class="font-display text-sm font-bold uppercase tracking-[0.3em] text-magenta">
+        The Source
+      </p>
+      <h1 class="mt-4 max-w-3xl font-display text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-7xl">
+        Download Site <span class="text-red">Code</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-offwhite/85">
+        Grab the complete project as a zip archive — pages, components, styles,
+        and config, ready to open or push to your own repo.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-6 py-20 sm:px-10">
+    <div class="rounded-3xl border border-white/10 bg-ink-soft p-10 text-center sm:p-14">
+      <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-red/15 text-red">
+        <FileArchive size={32} />
+      </div>
+      <h2 class="mt-8 font-display text-3xl font-black uppercase tracking-tight sm:text-4xl">
+        lovehouse-official-clt.zip
+      </h2>
+      <p class="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ash">
+        The full source tree (excludes <code class="text-offwhite/80">node_modules</code>,
+        build output, and git internals).
+      </p>
+
+      <a
+        href="/code.zip"
+        download
+        class="mt-9 inline-flex items-center gap-3 rounded-full bg-red px-9 py-4 font-display text-sm font-bold uppercase tracking-widest text-offwhite transition-transform hover:scale-[1.03] hover:bg-red/90"
+      >
+        <Download size={18} />
+        Download the code
+      </a>
+
+      <p class="mt-6 text-xs uppercase tracking-[0.2em] text-ash">
+        Zip served as a static asset
+      </p>
+    </div>
+
+    <p class="mt-12 text-center">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 font-display text-sm font-bold uppercase tracking-widest text-offwhite/70 transition-colors hover:text-magenta"
+      >
+        <ArrowLeft size={16} />
+        Back home
+      </a>
+    </p>
+  </section>
+</Layout>

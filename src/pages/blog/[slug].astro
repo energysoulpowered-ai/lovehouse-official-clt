@@ -1,0 +1,68 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getPosts, formatDate, type BlogPost } from "../../lib/blog";
+import { createSatteriMarkdownProcessor } from "@astrojs/markdown-satteri";
+import { ArrowLeft } from "@lucide/astro";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+// Render the markdown body with Astro's built-in processor (build-time, static).
+const processor = await createSatteriMarkdownProcessor();
+const { code } = await processor.render(post.markdown ?? "");
+
+const date = formatDate(post.dateScheduled);
+---
+
+<Layout
+  title={`${post.title} — LoveHouse Official CLT`}
+  description={`${post.title} — news & culture from LoveHouse Official CLT.`}
+>
+  <article class="mx-auto max-w-3xl px-6 py-20 sm:px-10">
+    <a
+      href="/blog"
+      class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-ash transition-colors hover:text-red"
+    >
+      <ArrowLeft size={16} /> All posts
+    </a>
+
+    <header class="mt-8 border-b border-white/10 pb-8">
+      {
+        date && (
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-magenta">
+            {date}
+          </span>
+        )
+      }
+      <h1 class="mt-3 font-display text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl">
+        {post.title}
+      </h1>
+    </header>
+
+    <div
+      class="mt-10 max-w-none leading-relaxed [&_a]:text-red [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-magenta [&_blockquote]:my-6 [&_blockquote]:border-l-4 [&_blockquote]:border-red [&_blockquote]:pl-5 [&_blockquote]:italic [&_blockquote]:text-ash [&_code]:rounded [&_code]:bg-white/10 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_code]:text-magenta [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:font-display [&_h2]:text-3xl [&_h2]:font-extrabold [&_h2]:uppercase [&_h2]:tracking-tight [&_h3]:mt-8 [&_h3]:mb-2 [&_h3]:font-display [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:uppercase [&_hr]:my-10 [&_hr]:border-white/10 [&_img]:my-8 [&_img]:w-full [&_img]:rounded-2xl [&_li]:my-2 [&_li]:text-offwhite/85 [&_ol]:my-5 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:my-5 [&_p]:text-lg [&_p]:text-offwhite/85 [&_pre]:my-6 [&_pre]:overflow-x-auto [&_pre]:rounded-2xl [&_pre]:border [&_pre]:border-white/10 [&_pre]:bg-ink-soft [&_pre]:p-5 [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-offwhite [&_strong]:font-bold [&_strong]:text-offwhite [&_ul]:my-5 [&_ul]:list-disc [&_ul]:pl-6"
+      set:html={code}
+    >
+    </div>
+
+    <div class="mt-14 border-t border-white/10 pt-8">
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-display text-sm font-bold uppercase tracking-widest text-offwhite transition-colors hover:border-red hover:text-red"
+      >
+        <ArrowLeft size={16} /> Back to all posts
+      </a>
+    </div>
+  </article>
+</Layout>

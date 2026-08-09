@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Camera } from "@lucide/astro";
+
+const slots = Array.from({ length: 9 }, (_, i) => i + 1);
+---
+
+<Layout
+  title="Gallery — LoveHouse Official CLT"
+  description="Relive the moments from the underground — the LoveHouse Official CLT event gallery. Photos from Charlotte's house-music floor coming soon."
+>
+  <section class="border-b border-white/10 bg-gradient-to-b from-crimson/25 via-violet/15 to-ink">
+    <div class="mx-auto max-w-7xl px-6 py-24 sm:px-10 md:py-28">
+      <p class="font-display text-sm font-bold uppercase tracking-[0.3em] text-magenta">
+        The Memories
+      </p>
+      <h1 class="mt-4 max-w-3xl font-display text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-7xl">
+        Event <span class="text-red">Gallery</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-offwhite/85">
+        Relive the moments from the underground.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-6 py-20 sm:px-10">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        slots.map(() => (
+          <div class="group flex aspect-[4/3] flex-col items-center justify-center gap-4 rounded-2xl border-2 border-dashed border-white/15 bg-ink-soft text-center transition-colors hover:border-magenta/60">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-red/10 text-red transition-colors group-hover:bg-magenta/15 group-hover:text-magenta">
+              <Camera size={26} />
+            </div>
+            <p class="font-display text-sm font-bold uppercase tracking-widest text-ash">
+              Photo coming soon
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-14 text-center text-sm uppercase tracking-[0.2em] text-ash">
+      New shots drop after every night. Watch this space.
+    </p>
+  </section>
+</Layout>

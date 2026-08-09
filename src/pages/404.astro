@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ArrowLeft } from "@lucide/astro";
+---
+
+<Layout title="Lost the beat — LoveHouse Official CLT">
+  <section class="mx-auto flex max-w-3xl flex-col items-center px-6 py-32 text-center sm:px-10 md:py-44">
+    <p class="font-display text-[7rem] font-black leading-none text-red drop-shadow-[0_4px_30px_rgba(230,20,43,0.4)] sm:text-[10rem]">
+      404
+    </p>
+    <h1 class="mt-2 font-display text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+      You lost the beat
+    </h1>
+    <p class="mt-4 max-w-md text-ash">
+      This track doesn't exist — but the party's still going. Let's get you back
+      to the floor.
+    </p>
+    <a
+      href="/"
+      class="mt-10 inline-flex items-center gap-2 rounded-full bg-red px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-offwhite transition-transform hover:scale-[1.03]"
+    >
+      <ArrowLeft size={18} /> Back home
+    </a>
+  </section>
+</Layout>
