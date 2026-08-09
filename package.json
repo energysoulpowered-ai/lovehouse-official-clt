@@ -1,25 +1,27 @@
-{
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
-  "scripts": {
-    "dev": "astro dev",
-    "check": "astro check",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
+{  
+  "name": "",  
+  "type": "module",  
+  "version": "0.0.1",  
+  "engines": {  
+    "node": ">=22.12.0"  
+  },  
+  "scripts": {  
+    "dev": "astro dev",  
+    "check": "astro check",  
+    "build": "astro build",  
+    "preview": "astro preview",  
+    "astro": "astro"  
+  },  
   "dependencies": {  
-  "@lucide/astro": "0.306.0",  
-  "@tailwindcss/vite": "^4.3.0",  
-  "astro": "^6.4.8",  
-  "tailwindcss": "^4.3.0"  
+    "@lucide/astro": "0.306.0",  
+    "@tailwindcss/vite": "^4.3.0",  
+    "astro": "^6.4.8",  
+    "tailwindcss": "^4.3.0"  
+  },  
+  "devDependencies": {  
+    "@astrojs/check": "^0.9.9",  
+    "typescript": "^6.0.3"  
+  }  
 }  
-  "devDependencies": {
-    "@astrojs/check": "^0.9.9",
-    "typescript": "^6.0.3"
-  }
-}
+
+
