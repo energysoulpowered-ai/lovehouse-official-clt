@@ -1,11 +1,6 @@
-// https://astro.build/config  
-import { defineConfig } from "astro/config";
-
-export default defineConfig({  
-devToolbar: { enabled: false },  
-vite: {  
-  server: {  
-    allowedHosts: true,  
-  },  
-},  
-});  
+export default {  
+  plugins: {  
+    tailwindcss: {},  
+    autoprefixer: {}  
+  }  
+}  
