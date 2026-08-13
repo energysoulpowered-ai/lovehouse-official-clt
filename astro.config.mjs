@@ -1,11 +1,14 @@
 // @ts-check  
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config';  
+import tailwind from '@astrojs/tailwind';
 
+// https://astro.build/config  
 export default defineConfig({  
-  devToolbar: { enabled: false },  
-  vite: {  
-    server: {  
-      allowedHosts: true  
-    }  
-  }  
+integrations: [tailwind()],  
+devToolbar: { enabled: false },  
+vite: {  
+server: {  
+  allowedHosts: true  
+}  
+}  
 });  
