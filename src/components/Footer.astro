@@ -1,74 +1,94 @@
----
+---  
 import SocialIcon from "./SocialIcon.astro";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/music", label: "Music" },
-  { href: "/events", label: "Events" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
-];
-const year = 2035;
+const links = [  
+  { href: "/", label: "Home" },  
+  { href: "/music", label: "Music" },  
+  { href: "/events", label: "Events" },  
+  { href: "/gallery", label: "Gallery" },  
+  { href: "/blog", label: "Blog" },  
+  { href: "/contact", label: "Contact" },  
+];  
+const year = 2035;  
 ---
 
-<footer class="border-t border-white/10 bg-ink-soft">
-  <div
-    class="mx-auto grid max-w-7xl gap-10 px-6 py-14 sm:px-10 md:grid-cols-[1.5fr_1fr_1fr]"
-  >
-    <div>
-      <a href="/" class="flex items-center gap-3">
-        <img
-          src="/images/love-house-logo.webp"
-          alt="LoveHouse Official CLT"
-          width="48"
-          height="48"
-          class="h-12 w-12 rounded-md object-cover"
-        />
-        <span class="font-display text-xl font-extrabold uppercase tracking-tight">
-          LoveHouse<span class="text-red"> CLT</span>
-        </span>
-      </a>
-      <p class="mt-4 max-w-xs text-sm leading-relaxed text-ash">
-        House music rooted in the underground. Charlotte's home for soulful &
-        deep house — parties, mixes, and the people who love them.
-      </p>
+<footer class="border-t border-white/10 bg-ink-soft">  
+  <div  
+    class="mx-auto grid max-w-7xl gap-10 px-6 py-14 sm:px-10 md:grid-cols-[1.5fr_1fr_1fr]"  
+  >  
+    <div>  
+      <a href="/" class="flex items-center gap-3">  
+        <img  
+          src="/images/love-house-logo.webp"  
+          alt="LoveHouse Official CLT"  
+          width="48"  
+          height="48"  
+          class="h-12 w-12 rounded-md object-cover"  
+        />  
+        <span class="font-display text-xl font-extrabold uppercase tracking-tight">  
+          LoveHouse<span class="text-red"> CLT</span>  
+        </span>  
+      </a>  
+      <p class="mt-4 max-w-xs text-sm leading-relaxed text-ash">  
+        House music rooted in the underground. Charlotte's home for soulful &amp;  
+        deep house — parties, mixes, and the people who love them.  
+      </p>  
     </div>
 
-    <div>
-      <h3 class="font-display text-sm font-bold uppercase tracking-widest text-offwhite">
-        Explore
-      </h3>
-      <ul class="mt-4 space-y-2 text-sm text-ash">
-        {
-          links.map((l) => (
-            <li>
-              <a href={l.href} class="transition-colors hover:text-red">
-                {l.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+    <div>  
+      <h3 class="font-display text-sm font-bold uppercase tracking-widest text-offwhite">  
+        Explore  
+      </h3>  
+      <ul class="mt-4 space-y-2 text-sm text-ash">  
+        {  
+          links.map((l) => (  
+            <li>  
+              <a href={l.href} class="transition-colors hover:text-red">  
+                {l.label}  
+              </a>  
+            </li>  
+          ))  
+        }  
+      </ul>  
     </div>
 
-    <div>
-      <h3 class="font-display text-sm font-bold uppercase tracking-widest text-offwhite">
-        Follow
-      </h3>
-      <a
-        href="https://instagram.com/lovehouseofficialclt" https://www.tiktok.com/@lovehouseofficialclt https://www.facebook.com/share/g/1LJAh6erT1/
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-4 inline-flex items-center gap-2 text-sm text-ash transition-colors hover:text-magenta"
-
-      >
-        <SocialIcon name="instagram" size={20} title="Instagram" />
-        @lovehouseofficialclt
-      </a>
-    </div>
+    <div>  
+      <h3 class="font-display text-sm font-bold uppercase tracking-widest text-offwhite">  
+        Follow  
+      </h3>  
+      <div class="mt-4 flex flex-col space-y-3">  
+        <a  
+          href="https://instagram.com/lovehouseofficialclt"  
+          target="_blank"  
+          rel="noopener noreferrer"  
+          class="inline-flex items-center gap-2 text-sm text-ash transition-colors hover:text-magenta"  
+        >  
+          <SocialIcon name="instagram" size={20} title="Instagram" />  
+          @lovehouseofficialclt  
+        </a>  
+        <a  
+          href="https://www.tiktok.com/@lovehouseofficialclt"  
+          target="_blank"  
+          rel="noopener noreferrer"  
+          class="inline-flex items-center gap-2 text-sm text-ash transition-colors hover:text-magenta"  
+        >  
+          <SocialIcon name="tiktok" size={20} title="TikTok" />  
+          @lovehouseofficialclt  
+        </a>  
+        <a  
+          href="https://www.facebook.com/share/g/1LJAh6erT1/"  
+          target="_blank"  
+          rel="noopener noreferrer"  
+          class="inline-flex items-center gap-2 text-sm text-ash transition-colors hover:text-magenta"  
+        >  
+          <SocialIcon name="facebook" size={20} title="Facebook" />  
+          LoveHouse Official CLT  
+        </a>  
+      </div>  
+    </div>  
   </div>
 
-  <div class="border-t border-white/5 px-6 py-6 text-center text-xs text-ash sm:px-10">
-    © {year} LoveHouse Official CLT · Made with love for the dance floor.
-  </div>
-</footer>
+  <div class="border-t border-white/5 px-6 py-6 text-center text-xs text-ash sm:px-10">  
+    &copy; {year} LoveHouse Official CLT · Made with love for the dance floor.  
+  </div>  
+</footer> 
