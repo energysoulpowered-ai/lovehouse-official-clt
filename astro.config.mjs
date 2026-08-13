@@ -4,11 +4,11 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config  
 export default defineConfig({  
-integrations: [tailwind()],  
-devToolbar: { enabled: false },  
-vite: {  
-server: {  
-  allowedHosts: true  
-}  
-}  
-});  
+  integrations: [tailwind()],  
+  devToolbar: { enabled: false },  
+  vite: {  
+    server: {  
+      allowedHosts: true  
+    }  
+  }  
+});   
