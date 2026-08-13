@@ -1,219 +1,283 @@
----
-import Layout from "../layouts/Layout.astro";
-import { Disc3, CalendarHeart, Radio, HeartHandshake, ArrowRight, Calendar, MapPin, Clock, Download } from "@lucide/astro";
+---  
+import Layout from "../layouts/Layout.astro";  
+import {  
+  ArrowDownRight,  
+  ArrowUpRight,  
+  CalendarDays,  
+  Clock3,  
+  Disc3,  
+  Heart,  
+  Headphones,  
+  MapPin,  
+  Play,  
+  RadioTower,  
+  Ticket,  
+} from "@lucide/astro";
 
-const highlights = [
-  {
-    icon: Disc3,
-    title: "The Sound",
-    body: "Soulful, deep, and unmistakably underground. Curated mixes and releases straight from the heart of the floor.",
-  },
-  {
-    icon: CalendarHeart,
-    title: "The Parties",
-    body: "Underground music, community, and a room full of people who get it. Charlotte nights built on real house music.",
-  },
-  {
-    icon: Radio,
-    title: "The Culture",
-    body: "News, stories, and the artists moving the scene forward. House isn't just music here — it's a way of moving.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "The Community",
-    body: "No egos, no velvet ropes. Just love for the record and the people you share it with. Everyone's welcome.",
-  },
+const archiveMixes = [  
+  {  
+    title: "TWIRLSPACE",  
+    timing: "Saturdays · 11PM–1AM EST",  
+    note: "Deep, soulful, afro tech house journeys live on Twitch.",  
+  },  
+  {  
+    title: "SLEAZY MORNING DISCO",  
+    timing: "Sundays · After Hours",  
+    note: "Late-night disco and house vibrations for the hours that refuse to end.",  
+  },  
 ];
+
+const ticketUrl =  
+  "https://events.ticketleap.com/tickets/powered-by-energy-soul/lovehouse-clt-210208621";  
+const twitchUrl = "https://twitch.tv/johncrockettdjsets";  
 ---
 
-<Layout>
-  <!-- DOWNLOAD BAR -->
-  <div class="border-b border-white/10 bg-ink-soft">
-    <div class="mx-auto flex max-w-7xl items-center justify-center px-6 py-3 sm:px-10">
-      <a
-        href="/download"
-        class="inline-flex items-center gap-2 font-display text-xs font-bold uppercase tracking-widest text-offwhite/80 transition-colors hover:text-red"
-      >
-        <Download size={14} />
-        Download Site Code
-      </a>
-    </div>
-  </div>
+<Layout  
+  title="LoveHouse Official CLT — Come As You Are"  
+  description="LoveHouse Official CLT is Charlotte's home for soulful, deep, and underground house music. Come as you are."  
+>  
+  <div class="overflow-hidden">  
+    <!-- HERO -->  
+    <section class="hero relative isolate min-h-[720px] overflow-hidden border-b border-white/10 sm:min-h-[800px]">  
+      <img  
+        src="/images/dj-hero.webp"  
+        alt="DJ performing beneath blue and magenta club lights"  
+        class="absolute inset-0 -z-20 h-full w-full object-cover object-center"  
+        fetchpriority="high"  
+      />  
+      <div class="absolute inset-0 -z-10 bg-[linear-gradient(110deg,rgba(10,7,8,.98)_8%,rgba(10,7,8,.74)_47%,rgba(10,7,8,.2)_100%)]"></div>  
+      <div class="absolute inset-0 -z-10 bg-[linear-gradient(0deg,#0a0708_0%,transparent_38%,rgba(142,14,34,.18)_100%)]"></div>  
+      <div class="absolute right-[-12%] top-24 -z-10 h-72 w-72 rounded-full bg-red/25 blur-3xl sm:right-[8%]"></div>
 
-  <!-- HERO -->
-  <section class="relative isolate overflow-hidden">
-    <img
-      src="/images/dj-hero.webp"
-      alt="DJ performing under neon club lights"
-      class="absolute inset-0 -z-10 h-full w-full object-cover"
-      fetchpriority="high"
-    />
-    <div
-      class="absolute inset-0 -z-10 bg-gradient-to-br from-ink/95 via-crimson/50 to-violet/40"
-    >
-    </div>
-    <div
-      class="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/40 to-transparent"
-    >
-    </div>
+      <div class="mx-auto flex min-h-[720px] max-w-7xl flex-col justify-between px-6 pb-12 pt-10 sm:min-h-[800px] sm:px-10 sm:pb-16 sm:pt-14">  
+        <div class="flex items-center justify-between gap-6">  
+          <p class="font-display text-xs font-bold uppercase tracking-[0.28em] text-offwhite/70">  
+            Charlotte, NC · Est. in the underground  
+          </p>  
+          <div class="hidden items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-red sm:flex">  
+            <span class="h-2 w-2 animate-pulse rounded-full bg-red"></span>  
+            Live from the floor  
+          </div>  
+        </div>
 
-    <div class="mx-auto flex max-w-7xl flex-col items-start px-6 py-28 sm:px-10 md:py-40">
-      <span
-        class="mb-6 inline-flex items-center gap-2 rounded-full border border-red/40 bg-red/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-red"
-      >
-        Charlotte · NC
-      </span>
-      <h1
-        class="max-w-4xl font-display text-5xl font-black uppercase leading-[0.92] tracking-tight drop-shadow-[0_4px_30px_rgba(230,20,43,0.35)] sm:text-7xl md:text-8xl"
-      >
-        House music rooted in the <span class="text-red">underground</span>
-      </h1>
-      <p class="mt-8 max-w-xl text-lg leading-relaxed text-offwhite/85 sm:text-xl">
-        LoveHouse Official CLT is where soulful and deep house lives — the
-        parties, the mixes, and the people who love the dance floor as much as
-        we do.
-      </p>
-      <div class="mt-10 flex flex-wrap items-center gap-4">
-        <a
-          href="/events"
-          class="group inline-flex items-center gap-2 rounded-full bg-red px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-offwhite transition-transform hover:scale-[1.03] hover:bg-red/90"
-        >
-          Join the party
-          <ArrowRight size={18} class="transition-transform group-hover:translate-x-1" />
-        </a>
-        <a
-          href="/music"
-          class="inline-flex items-center gap-2 rounded-full border border-white/25 px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-offwhite transition-colors hover:border-magenta hover:text-magenta"
-        >
-          Hear the sound
-        </a>
-      </div>
-    </div>
-  </section>
+        <div class="max-w-5xl pb-8 pt-24 sm:pb-12 sm:pt-32">  
+          <p class="mb-6 flex items-center gap-3 font-display text-sm font-bold uppercase tracking-[0.34em] text-red">  
+            <span class="h-px w-10 bg-red"></span>  
+            House music rooted in the underground  
+          </p>  
+          <h1 class="max-w-4xl font-display text-[clamp(3.5rem,10vw,8.6rem)] font-black uppercase leading-[0.84] tracking-[-0.07em] text-offwhite">  
+            Come as<br />you are<span class="text-red">.</span>  
+          </h1>  
+          <div class="mt-8 grid max-w-3xl gap-8 sm:grid-cols-[1fr_auto] sm:items-end">  
+            <p class="max-w-xl text-lg leading-relaxed text-offwhite/80 sm:text-xl">  
+              Let the music move you and get into your groove. A Charlotte home for deep, soulful, and unapologetically human house music.  
+            </p>  
+            <a  
+              href="#featured-event"  
+              class="group inline-flex w-fit items-center gap-3 border-b border-red pb-2 font-display text-sm font-bold uppercase tracking-[0.2em] text-offwhite transition-colors hover:text-red"  
+            >  
+              Find your way in  
+              <ArrowDownRight size={18} class="transition-transform group-hover:translate-x-1 group-hover:translate-y-1" />  
+            </a>  
+          </div>  
+        </div>
 
-  <!-- FEATURED EVENT -->
-  <section class="relative overflow-hidden bg-gradient-to-br from-red/80 to-magenta/60 px-6 py-20 sm:px-10 sm:py-28">
-    <div class="mx-auto max-w-4xl text-center">
-      <span class="inline-block rounded-full bg-white/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-offwhite backdrop-blur-sm">
-        Coming Up Next
-      </span>
-      <h2 class="mt-6 font-display text-4xl font-black uppercase tracking-tight text-offwhite sm:text-5xl md:text-6xl">
-        LoveHouse
-      </h2>
-      <p class="mt-4 text-lg font-medium text-offwhite/90 sm:text-xl">
-        Featuring John Crockett, Wil Milton &amp; DJ Q-INETIC
-      </p>
-      <div class="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm font-bold uppercase tracking-widest text-offwhite/80">
-        <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-          <Calendar size={16} class="text-offwhite" />
-          August 15
-        </span>
-        <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-          <MapPin size={16} class="text-offwhite" />
-          Crown Station
-        </span>
-        <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-          <Clock size={16} class="text-offwhite" />
-          3PM – 8PM
-        </span>
-      </div>
-      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <a
-          href="https://events.ticketleap.com/tickets/powered-by-energy-soul/lovehouse-clt-210208621"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-full bg-offwhite px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-ink transition-transform hover:scale-[1.03]"
-        >
-          Get Tickets
-          <ArrowRight size={16} />
-        </a>
-        <a
-          href="/music"
-          class="inline-flex items-center gap-2 rounded-full border border-white/30 px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-offwhite transition-all hover:bg-white/10"
-        >
-          Hear the Lineup
-        </a>
-      </div>
-    </div>
-  </section>
+        <div class="flex flex-wrap items-center justify-between gap-4 border-t border-white/20 pt-5 text-xs font-bold uppercase tracking-[0.2em] text-offwhite/60">  
+          <span>LoveHouse Official CLT</span>  
+          <span class="hidden sm:inline">Soulful · Deep · Afro Tech</span>  
+          <span>01 / 05</span>  
+        </div>  
+      </div>  
+    </section>
 
-  <!-- HIGHLIGHTS -->
-  <section class="mx-auto max-w-7xl px-6 py-24 sm:px-10">
-    <div class="max-w-2xl">
-      <h2 class="font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
-        More than a <span class="text-magenta">night out</span>
-      </h2>
-      <p class="mt-4 text-lg text-ash">
-        Four things we care about, every single time the lights go down.
-      </p>
-    </div>
+    <!-- FEATURED EVENT -->  
+    <section id="featured-event" class="relative scroll-mt-20 border-b border-white/10 bg-crimson/25">  
+      <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 sm:px-10 sm:py-28 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">  
+        <div>  
+          <p class="font-display text-sm font-bold uppercase tracking-[0.3em] text-red">Featured Artists · LoveHouse Aug 15</p>  
+          <h2 class="mt-5 max-w-md font-display text-5xl font-black uppercase leading-[0.9] tracking-[-0.04em] sm:text-7xl">  
+            The next<br /><span class="text-red">gathering.</span>  
+          </h2>  
+          <p class="mt-7 max-w-sm text-base leading-relaxed text-offwhite/70">  
+            A room full of people who get it. Bring your friends, your favorite records, and the part of you that only comes out after dark.  
+          </p>  
+          <a  
+            href={ticketUrl}  
+            target="_blank"  
+            rel="noopener noreferrer"  
+            class="mt-9 inline-flex items-center gap-3 bg-red px-6 py-4 font-display text-sm font-bold uppercase tracking-[0.18em] text-offwhite transition-colors hover:bg-offwhite hover:text-ink"  
+          >  
+            <Ticket size={17} />  
+            Get tickets  
+            <ArrowUpRight size={17} />  
+          </a>  
+        </div>
 
-    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {
-        highlights.map((h) => (
-          <div class="group rounded-2xl border border-white/10 bg-ink-soft p-7 transition-colors hover:border-red/50">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-red/15 text-red transition-colors group-hover:bg-red group-hover:text-offwhite">
-              <h.icon size={24} />
-            </div>
-            <h3 class="mt-6 font-display text-xl font-bold uppercase tracking-wide">
-              {h.title}
-            </h3>
-            <p class="mt-3 text-sm leading-relaxed text-ash">{h.body}</p>
-          </div>
-        ))
-      }
-    </div>
-  </section>
+        <div class="relative border-t border-white/20 pt-7 sm:pt-8">  
+          <div class="flex flex-wrap items-start justify-between gap-4">  
+            <div>  
+              <p class="font-display text-4xl font-black uppercase tracking-[-0.04em] sm:text-6xl">LoveHouse</p>  
+              <p class="mt-2 font-display text-sm font-bold uppercase tracking-[0.22em] text-red">Powered by Energy &amp; Soul</p>  
+            </div>  
+            <Heart size={42} fill="currentColor" strokeWidth={1.2} class="text-red" aria-hidden="true" />  
+          </div>  
+          <div class="mt-10 grid gap-0 divide-y divide-white/10 border-y border-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">  
+            <div class="py-5 sm:pr-5">  
+              <CalendarDays size={19} class="mb-5 text-red" />  
+              <p class="font-display text-xl font-bold uppercase">August 15th</p>  
+              <p class="mt-1 text-sm text-ash">Saturday</p>  
+            </div>  
+            <div class="py-5 sm:px-5">  
+              <MapPin size={19} class="mb-5 text-red" />  
+              <p class="font-display text-xl font-bold uppercase">Crown Station</p>  
+              <p class="mt-1 text-sm text-ash">Charlotte, NC</p>  
+            </div>  
+            <div class="py-5 sm:pl-5">  
+              <Clock3 size={19} class="mb-5 text-red" />  
+              <p class="font-display text-xl font-bold uppercase">3PM — 8PM</p>  
+              <p class="mt-1 text-sm text-ash">Doors open</p>  
+            </div>  
+          </div>  
+          <div class="mt-10 grid gap-3 sm:grid-cols-3">  
+            <div class="border border-white/15 bg-ink/35 p-5">  
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-red">Resident curator</p>  
+              <p class="mt-3 font-display text-2xl font-black uppercase">John Crockett</p>  
+            </div>  
+            <div class="border border-white/15 bg-ink/35 p-5">  
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-red">Special guest</p>  
+              <p class="mt-3 font-display text-2xl font-black uppercase">Wil Milton</p>  
+            </div>  
+            <div class="border border-white/15 bg-ink/35 p-5">  
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-red">Opening spark</p>  
+              <p class="mt-3 font-display text-2xl font-black uppercase">DJ Q-INETIC</p>  
+            </div>  
+          </div>  
+        </div>  
+      </div>  
+    </section>
 
-  <!-- FEATURE BAND -->
-  <section class="relative isolate overflow-hidden">
-    <img
-      src="/images/crowd.webp"
-      alt="Crowd dancing under neon lights"
-      class="absolute inset-0 -z-10 h-full w-full object-cover"
-      loading="lazy"
-    />
-    <div class="absolute inset-0 -z-10 bg-ink/80"></div>
-    <div class="mx-auto max-w-4xl px-6 py-28 text-center sm:px-10">
-      <p class="font-display text-sm font-bold uppercase tracking-[0.3em] text-magenta">
-        No egos · No velvet ropes
-      </p>
-      <h2 class="mt-5 font-display text-4xl font-black uppercase leading-tight tracking-tight sm:text-6xl">
-        Come as you are.<br />Let the music move you and get into your groove.
-      </h2>
-      <a
-        href="/events"
-        class="mt-10 inline-flex items-center gap-2 rounded-full bg-offwhite px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-ink transition-transform hover:scale-[1.03]"
-      >
-        See what's next
-        <ArrowRight size={18} />
-      </a>
-    </div>
-  </section>
+    <!-- THE SOUND -->  
+    <section class="mx-auto max-w-7xl px-6 py-24 sm:px-10 sm:py-32">  
+      <div class="grid gap-14 lg:grid-cols-[.7fr_1.3fr] lg:gap-24">  
+        <div>  
+          <p class="font-display text-sm font-bold uppercase tracking-[0.3em] text-magenta">The sound</p>  
+          <h2 class="mt-5 font-display text-5xl font-black uppercase leading-[0.9] tracking-[-0.05em] sm:text-7xl">  
+            Turn it<br /><span class="text-red">up.</span>  
+          </h2>  
+          <p class="mt-7 max-w-sm text-base leading-relaxed text-ash">  
+            Deep cuts. Warm chords. A kick drum with somewhere to go. Plug into the LoveHouse archive, curated by resident DJ John Crockett.  
+          </p>  
+          <a href="/music" class="group mt-8 inline-flex items-center gap-2 font-display text-sm font-bold uppercase tracking-[0.2em] text-offwhite hover:text-red">  
+            Explore all music  
+            <ArrowUpRight size={17} class="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />  
+          </a>  
+        </div>
 
-  <!-- NEWSLETTER CTA -->
-  <section class="mx-auto max-w-4xl px-6 py-24 text-center sm:px-10">
-    <h2 class="font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl">
-      Get on the <span class="text-red">list</span>
-    </h2>
-    <p class="mx-auto mt-4 max-w-lg text-lg text-ash">
-      Early tickets, new mixes, and the next drop — straight to your inbox. No
-      spam, just the good stuff.
-    </p>
-    <form class="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row" action="/contact">
-      <input
-        type="email"
-        name="email"
-        required
-        placeholder="you@email.com"
-        class="w-full rounded-full border border-white/15 bg-ink-soft px-6 py-4 text-sm text-offwhite placeholder:text-ash focus:border-red focus:outline-none"
-      />
-      <button
-        type="submit"
-        class="rounded-full bg-red px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-offwhite transition-transform hover:scale-[1.03]"
-      >
-        Subscribe
-      </button>
-    </form>
-  </section>
-</Layout>
+        <div>  
+          <div class="mb-5 flex items-end justify-between gap-4">  
+            <div>  
+              <p class="font-display text-3xl font-black uppercase tracking-[-0.03em] sm:text-4xl">  
+                John Crockett <span class="text-red">Archive Mixes</span>  
+              </p>  
+              <p class="mt-2 text-sm uppercase tracking-[0.15em] text-ash">All shows · Powered by Energy &amp; Soul</p>  
+            </div>  
+            <Headphones size={24} class="hidden shrink-0 text-red sm:block" />  
+          </div>  
+          <div class="overflow-hidden border border-white/15 bg-ink-soft">  
+            <iframe  
+              title="Powered by Energy & Soul on SoundCloud"  
+              width="100%"  
+              height="350"  
+              scrolling="no"  
+              frameborder="no"  
+              allow="autoplay"  
+              loading="lazy"  
+              class="block w-full"  
+              src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fleomoon&color=%23e6142b&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true"  
+            ></iframe>  
+          </div>  
+          <div class="mt-5 divide-y divide-white/10 border-y border-white/10">  
+            {  
+              archiveMixes.map((mix, index) => (  
+                <a  
+                  href={twitchUrl}  
+                  target="_blank"  
+                  rel="noopener noreferrer"  
+                  class="group flex items-center justify-between gap-4 py-5 transition-colors hover:text-red"  
+                >  
+                  <div class="flex min-w-0 items-center gap-4">  
+                    <span class="font-display text-xl font-black text-red/60">0{index + 1}</span>  
+                    <div class="min-w-0">  
+                      <p class="truncate font-display text-lg font-black uppercase tracking-wide">{mix.title}</p>  
+                      <p class="mt-1 truncate text-xs uppercase tracking-[0.13em] text-ash">{mix.timing}</p>  
+                    </div>  
+                  </div>  
+                  <span class="inline-flex shrink-0 items-center gap-2 border border-white/20 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-offwhite/75 group-hover:border-red group-hover:text-red">  
+                    <Play size={12} fill="currentColor" />  
+                    Watch  
+                  </span>  
+                </a>  
+              ))  
+            }  
+          </div>  
+        </div>  
+      </div>  
+    </section>
+
+    <!-- STREAMS -->  
+    <section class="border-y border-white/10 bg-ink-soft">  
+      <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 sm:px-10 sm:py-28 lg:grid-cols-[.8fr_1.2fr] lg:items-center">  
+        <div>  
+          <p class="font-display text-sm font-bold uppercase tracking-[0.3em] text-red">Stay in the groove</p>  
+          <h2 class="mt-4 max-w-sm font-display text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-6xl">  
+            The party<br /><span class="text-magenta">keeps moving.</span>  
+          </h2>  
+          <p class="mt-6 max-w-sm text-base leading-relaxed text-ash">  
+            Catch John Crockett live on Twitch when the weekend is over and the good records are still spinning.  
+          </p>  
+        </div>  
+        <div class="grid gap-4 sm:grid-cols-2">  
+          <a href={twitchUrl} target="_blank" rel="noopener noreferrer" class="group border border-white/15 p-6 transition-colors hover:border-red hover:bg-red hover:text-offwhite">  
+            <RadioTower size={23} class="text-red group-hover:text-offwhite" />  
+            <p class="mt-12 font-display text-2xl font-black uppercase leading-none">TWIRLSPACE</p>  
+            <div class="mt-5 flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-[0.17em] text-ash group-hover:text-offwhite/75">  
+              <span>Watch on Twitch</span>  
+              <ArrowUpRight size={16} />  
+            </div>  
+          </a>  
+          <a href={twitchUrl} target="_blank" rel="noopener noreferrer" class="group border border-white/15 p-6 transition-colors hover:border-magenta hover:bg-magenta hover:text-offwhite">  
+            <Disc3 size={23} class="text-magenta group-hover:text-offwhite" />  
+            <p class="mt-12 font-display text-2xl font-black uppercase leading-none">SLEAZY MORNING DISCO</p>  
+            <div class="mt-5 flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-[0.17em] text-ash group-hover:text-offwhite/75">  
+              <span>Watch on Twitch</span>  
+              <ArrowUpRight size={16} />  
+            </div>  
+          </a>  
+        </div>  
+      </div>  
+    </section>
+
+    <!-- CLOSING CTA -->  
+    <section class="relative isolate overflow-hidden px-6 py-28 sm:px-10 sm:py-40">  
+      <img src="/images/crowd.webp" alt="Crowd dancing at a LoveHouse event" class="absolute inset-0 -z-20 h-full w-full object-cover object-center grayscale" loading="lazy" />  
+      <div class="absolute inset-0 -z-10 bg-ink/85"></div>  
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_65%_35%,rgba(230,20,43,.35),transparent_45%)]"></div>  
+      <div class="mx-auto max-w-4xl text-center">  
+        <Heart size={30} fill="currentColor" class="mx-auto text-red" aria-hidden="true" />  
+        <p class="mt-6 font-display text-sm font-bold uppercase tracking-[0.3em] text-offwhite/60">No egos · No velvet ropes</p>  
+        <h2 class="mt-5 font-display text-5xl font-black uppercase leading-[0.88] tracking-[-0.06em] sm:text-8xl">  
+          This is your<br /><span class="text-red">dance floor.</span>  
+        </h2>  
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">  
+          <a href="/events" class="inline-flex items-center gap-2 bg-offwhite px-7 py-4 font-display text-sm font-bold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-red hover:text-offwhite">  
+            See what's next  
+            <ArrowUpRight size={17} />  
+          </a>  
+          <a href="/contact" class="inline-flex items-center gap-2 border border-white/30 px-7 py-4 font-display text-sm font-bold uppercase tracking-[0.18em] text-offwhite transition-colors hover:border-red hover:text-red">  
+            Book the sound  
+          </a>  
+        </div>  
+      </div>  
+    </section>  
+  </div>  
+</Layout>  
